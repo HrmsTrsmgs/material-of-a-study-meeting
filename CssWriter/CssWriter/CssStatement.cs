@@ -24,16 +24,11 @@ $@"{CssForSelectors()} {{
             return string.Join(", ", Selectors);
         }
 
-        private string CssForDelaration(KeyValuePair<string, string> delaration)
-        {
-            return $"{delaration.Key}: {delaration.Value}";
-        }
-
         private string CssForDelarationCollection()
         {
             return string.Join(";\r\n    ",
                 from delaration in Declarations
-                select CssForDelaration(delaration));
+                select $"{delaration.Key}: {delaration.Value}");
         }
     }
 }
