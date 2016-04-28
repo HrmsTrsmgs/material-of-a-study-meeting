@@ -9,6 +9,7 @@ namespace CssWriter
     public class CssFile
     {
         public string Path { get; private set; }
+        public CssStatement[] Statements { get; set; }
 
         public CssFile(string path)
         {
