@@ -21,7 +21,7 @@ namespace CssWriter.Helpers
                 Selectors = selector.ToArray(),
                 Declarations = new Dictionary<string, string> {
                     {GetParameterName(declarations[0]), GetValue(declarations[0]) },
-                    {GetParameterName(declarations[1]), declarations[1].Compile().Invoke("") }
+                    {GetParameterName(declarations[1]), GetValue(declarations[1]) }
                 }
             };
         }
