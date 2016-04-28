@@ -70,5 +70,20 @@ namespace CssWriterTest
     line-height: 10pt
 }"));
         }
+
+        [Test]
+        public void Helperを使ったCssの組み立てでは特性を反映します()
+        {
+            var tested =
+                "H2".Css(
+                    line_height => "12pt",
+                    font_size => "10pt");
+
+            Expect(tested.ToString(), Is.EqualTo(
+@"H2 {
+    line-height: 12pt;
+    font-size: 10pt
+}"));
+        }
     }
 }
