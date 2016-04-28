@@ -19,10 +19,9 @@ namespace CssWriter.Helpers
             return new CssStatement
             {
                 Selectors = selector.ToArray(),
-                Declarations = new Dictionary<string, string> {
-                    {GetParameterName(declarations[0]), GetValue(declarations[0]) },
-                    {GetParameterName(declarations[1]), GetValue(declarations[1]) }
-                }
+                Declarations = declarations.ToDictionary(
+                    declaration => GetParameterName(declaration),
+                    declaration => GetValue(declaration))
             };
         }
 
