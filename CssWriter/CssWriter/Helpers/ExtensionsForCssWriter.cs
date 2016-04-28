@@ -12,7 +12,7 @@ namespace CssWriter.Helpers
         {
             return new CssStatement
             {
-                Selectors = new[] { "H1" },
+                Selectors = new[] { selector },
                 Declarations = new Dictionary<string, string> {
                     {"font-size", "12pt" },
                     {"line-height", "10pt" }
