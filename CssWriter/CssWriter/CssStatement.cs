@@ -15,7 +15,7 @@ namespace CssWriter
         {
             return
 $@"{CssForSelectors()} {{
-    {Declarations.Keys.First()}: {Declarations.Values.First()}
+    {Declarations.First().Key}: {Declarations.First().Value}
 }}";
         }
 
