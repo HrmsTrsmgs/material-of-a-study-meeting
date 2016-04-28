@@ -40,5 +40,20 @@ namespace CssWriterTest
     line-height: 10pt
 }"));
         }
+
+        [Test]
+        public void Helperを使ったCssの組み立てでは複数のセレクターが指定できます()
+        {
+            var tested =
+                new[] { "H1", "H2" }.Css(
+                    font_size => "12pt",
+                    line_height => "10pt");
+
+            Expect(tested.ToString(), Is.EqualTo(
+@"H1, H2 {
+    font-size: 12pt;
+    line-height: 10pt
+}"));
+        }
     }
 }
