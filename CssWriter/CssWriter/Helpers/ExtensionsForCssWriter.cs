@@ -19,5 +19,10 @@ namespace CssWriter.Helpers
                 }
             };
         }
+
+        public static CssStatement Css(this string[] selector, params Func<string, string>[] decdeclarations)
+        {
+            return null;
+        }
     }
 }
