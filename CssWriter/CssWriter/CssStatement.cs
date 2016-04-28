@@ -15,7 +15,7 @@ namespace CssWriter
         {
             return
 $@"{CssForSelectors()} {{
-    font-size: 12pt
+    {Declarations.Keys.First()}: 12pt
 }}";
         }
 
