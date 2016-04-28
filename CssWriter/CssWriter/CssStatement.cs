@@ -23,5 +23,10 @@ $@"{CssForSelectors()} {{
         {
             return string.Join(", ", Selectors);
         }
+
+        private string CssForDelaration(KeyValuePair<string, string> delaration)
+        {
+            return $"{delaration.Key}: {delaration.Value}";
+        }
     }
 }
