@@ -20,11 +20,11 @@ namespace CssWriter.Helpers
             };
         }
 
-        public static CssStatement Css(this string[] selector, params Func<string, string>[] decdeclarations)
+        public static CssStatement Css(this IEnumerable<string> selector, params Func<string, string>[] decdeclarations)
         {
             return new CssStatement
             {
-                Selectors = selector,
+                Selectors = selector.ToArray(),
                 Declarations = new Dictionary<string, string> {
                     {"font-size", "12pt" },
                     {"line-height", "10pt" }
