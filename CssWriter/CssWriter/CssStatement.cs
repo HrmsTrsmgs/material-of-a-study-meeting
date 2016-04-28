@@ -14,7 +14,7 @@ namespace CssWriter
         public override string ToString()
         {
             return
-$@"{Selectors[0]} {{
+$@"{string.Join(", ",Selectors)} {{
     font-size: 12pt
 }}";
         }
