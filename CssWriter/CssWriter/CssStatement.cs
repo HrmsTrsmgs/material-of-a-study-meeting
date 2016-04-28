@@ -15,7 +15,7 @@ namespace CssWriter
         {
             return
 $@"{CssForSelectors()} {{
-    {string.Join(";\r\n    ", Declarations.Select(delaration => CssForDelaration(delaration)))}
+    {CssForDelarationCollection()}
 }}";
         }
 
@@ -27,6 +27,11 @@ $@"{CssForSelectors()} {{
         private string CssForDelaration(KeyValuePair<string, string> delaration)
         {
             return $"{delaration.Key}: {delaration.Value}";
+        }
+
+        private string CssForDelarationCollection()
+        {
+            return string.Join(";\r\n    ", Declarations.Select(delaration => CssForDelaration(delaration)));
         }
     }
 }
