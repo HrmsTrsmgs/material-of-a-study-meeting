@@ -87,5 +87,24 @@ namespace CssWriterTest
     line-height: 10pt
 }"));
         }
+
+        [Test]
+        public void ToStringで複数の特性を出力に反映します()
+        {
+            var tested = new CssStatement();
+
+            tested.Selectors = new[] { "H1", "H2" };
+
+            tested.Declarations = new Dictionary<string, string> {
+                {"font-size", "12pt" },
+                {"line-height", "10pt" }
+            };
+
+            Expect(tested.ToString(), Is.EqualTo(
+@"H1, H2 {
+    font-size: 12pt;
+    line-height: 10pt
+}"));
+        }
     }
 }
