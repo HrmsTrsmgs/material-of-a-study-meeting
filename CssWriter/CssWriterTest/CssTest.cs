@@ -27,5 +27,20 @@ namespace CssWriterTest
     font-size: 12pt
 }"));
         }
+
+        [Test]
+        public void ToStringでセレクタの種類を見分けて出力に反映します()
+        {
+            var tested = new CssStatement();
+
+            tested.Selectors = new[] { "H2" };
+
+            tested.Declarations = new Dictionary<string, string> { { "font-size", "12pt" } };
+
+            Expect(tested.ToString(), Is.EqualTo(
+@"H2 {
+    font-size: 12pt
+}"));
+        }
     }
 }
