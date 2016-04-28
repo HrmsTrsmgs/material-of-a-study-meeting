@@ -20,10 +20,15 @@ namespace CssWriter.Helpers
             {
                 Selectors = selector.ToArray(),
                 Declarations = new Dictionary<string, string> {
-                    {declarations[0].Parameters.Single().Name.Replace('_', '-'), "12pt" },
+                    {GetParameterName(declarations[0]), "12pt" },
                     {declarations[1].Parameters.Single().Name.Replace('_', '-'), "10pt" }
                 }
             };
+        }
+
+        private static string GetParameterName(Expression<Func<string, string>> declaration)
+        {
+            return declaration.Parameters.Single().Name.Replace('_', '-');
         }
     }
 }
