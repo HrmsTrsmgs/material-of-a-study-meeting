@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework.Constraints;
+using CssWriter.Helpers;
+using System.IO;
 
 namespace CssWriterTest
 {
@@ -33,6 +35,23 @@ namespace CssWriterTest
             tested.Statements = statements;
 
             Expect(tested.Statements, Is.SameAs(statements));
+        }
+
+        [Test]
+        public void SaveでCssの保存ができます()
+        {
+            var tested = new CssFile(@"C:\File1.css",
+                new[] { "H1", "H2" }.Css(
+                    font_size => "12pt",
+                    line_height => "10pt"));
+
+            tested.Save();
+
+            Expect(File.ReadAllText(@"C:\File1.css"), Is.EqualTo(
+@"H1, H2 {
+    font-size: 12pt;
+    line-height: 10pt
+}"));
         }
     }
 }
