@@ -72,5 +72,20 @@ namespace CssWriterTest
     line-height: 12pt
 }"));
         }
+
+        [Test]
+        public void ToStringで値を見て表出力に反映します()
+        {
+            var tested = new CssStatement();
+
+            tested.Selectors = new[] { "H1", "H2" };
+
+            tested.Declarations = new Dictionary<string, string> { { "line-height", "10pt" } };
+
+            Expect(tested.ToString(), Is.EqualTo(
+@"H1, H2 {
+    line-height: 10pt
+}"));
+        }
     }
 }
