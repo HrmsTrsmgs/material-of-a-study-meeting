@@ -14,9 +14,9 @@ namespace CssWriter
         public override string ToString()
         {
             return
-@"H1 {
+$@"{Selectors[0]} {{
     font-size: 12pt
-}";
+}}";
         }
     }
 }
