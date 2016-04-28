@@ -31,7 +31,9 @@ $@"{CssForSelectors()} {{
 
         private string CssForDelarationCollection()
         {
-            return string.Join(";\r\n    ", Declarations.Select(delaration => CssForDelaration(delaration)));
+            return string.Join(";\r\n    ",
+                from delaration in Declarations
+                select CssForDelaration(delaration));
         }
     }
 }
