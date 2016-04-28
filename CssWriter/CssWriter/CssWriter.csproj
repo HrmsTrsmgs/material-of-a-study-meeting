@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CssFile.cs" />
     <Compile Include="CssStatement.cs" />
+    <Compile Include="Helpers\ExtensionsForCssWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
