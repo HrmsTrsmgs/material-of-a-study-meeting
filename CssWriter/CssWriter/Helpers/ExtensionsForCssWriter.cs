@@ -27,8 +27,6 @@ namespace CssWriter.Helpers
         }
 
         private static string GetParameterName(Expression<Func<string, string>> declaration)
-        {
-            return declaration.Parameters.Single().Name.Replace('_', '-');
-        }
+            => declaration.Parameters.Single().Name.Replace('_', '-');
     }
 }
