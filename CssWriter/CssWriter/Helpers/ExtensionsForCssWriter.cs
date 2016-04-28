@@ -21,7 +21,7 @@ namespace CssWriter.Helpers
                 Selectors = selector.ToArray(),
                 Declarations = new Dictionary<string, string> {
                     {GetParameterName(declarations[0]), "12pt" },
-                    {declarations[1].Parameters.Single().Name.Replace('_', '-'), "10pt" }
+                    {GetParameterName(declarations[1]), "10pt" }
                 }
             };
         }
