@@ -42,5 +42,20 @@ namespace CssWriterTest
     font-size: 12pt
 }"));
         }
+
+        [Test]
+        public void ToStringで複数のセレクタを出力に反映します()
+        {
+            var tested = new CssStatement();
+
+            tested.Selectors = new[] { "H1", "H2" };
+
+            tested.Declarations = new Dictionary<string, string> { { "font-size", "12pt" } };
+
+            Expect(tested.ToString(), Is.EqualTo(
+@"H1, H2 {
+    font-size: 12pt
+}"));
+        }
     }
 }
