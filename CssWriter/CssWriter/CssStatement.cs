@@ -15,7 +15,7 @@ namespace CssWriter
         {
             return
 $@"{CssForSelectors()} {{
-    {CssForDelaration(Declarations.First())}
+    {string.Join(";\r\n    ", Declarations.Select(delaration => CssForDelaration(delaration)))}
 }}";
         }
 
