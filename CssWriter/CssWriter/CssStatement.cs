@@ -10,5 +10,13 @@ namespace CssWriter
     {
         public Dictionary<string, string> Declarations { get; set; }
         public string[] Selectors { get; set; }
+
+        public override string ToString()
+        {
+            return
+@"H1 {
+    font-size: 12pt
+}";
+        }
     }
 }
