@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CssFileTest.cs" />
+    <Compile Include="CssHelperTest.cs" />
     <Compile Include="CssTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
