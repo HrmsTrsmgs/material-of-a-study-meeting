@@ -8,16 +8,11 @@ namespace CssWriter
 {
     public class CssFile
     {
-        public string Path
-        {
-            get
-            {
-                return @"C:\File1.css";
-            }
-        }
+        public string Path { get; set; }
 
         public CssFile(string path)
         {
+            Path = path;
         }
 
     }
