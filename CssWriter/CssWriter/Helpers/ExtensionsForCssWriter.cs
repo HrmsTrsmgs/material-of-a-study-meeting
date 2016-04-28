@@ -22,7 +22,14 @@ namespace CssWriter.Helpers
 
         public static CssStatement Css(this string[] selector, params Func<string, string>[] decdeclarations)
         {
-            return null;
+            return new CssStatement
+            {
+                Selectors = selector,
+                Declarations = new Dictionary<string, string> {
+                    {"font-size", "12pt" },
+                    {"line-height", "10pt" }
+                }
+            };
         }
     }
 }
