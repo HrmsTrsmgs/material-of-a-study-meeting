@@ -20,8 +20,8 @@ namespace CssWriter.Helpers
             {
                 Selectors = selector.ToArray(),
                 Declarations = new Dictionary<string, string> {
-                    {GetParameterName(declarations[0]), "12pt" },
-                    {GetParameterName(declarations[1]), "10pt" }
+                    {GetParameterName(declarations[0]), declarations[0].Compile().Invoke("") },
+                    {GetParameterName(declarations[1]), declarations[1].Compile().Invoke("") }
                 }
             };
         }
