@@ -58,6 +58,7 @@ namespace Test
 }"));
         }
 
+        [Test]
         public void ToStringでプロパティの内容を見て表示します()
         {
             var tested = new CssStatement();
