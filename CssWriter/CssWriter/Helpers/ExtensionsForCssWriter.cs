@@ -20,7 +20,7 @@ namespace CssWriter.Helpers
             {
                 Selectors = selector.ToArray(),
                 Declarations = new Dictionary<string, string> {
-                    {GetParameterName(declarations[0]), declarations[0].Compile().Invoke("") },
+                    {GetParameterName(declarations[0]), GetValue(declarations[0]) },
                     {GetParameterName(declarations[1]), declarations[1].Compile().Invoke("") }
                 }
             };
@@ -28,5 +28,8 @@ namespace CssWriter.Helpers
 
         private static string GetParameterName(Expression<Func<string, string>> declaration)
             => declaration.Parameters.Single().Name.Replace('_', '-');
+
+        private static string GetValue(Expression<Func<string, string>> declaration)
+            => declaration.Compile().Invoke("");
     }
 }
