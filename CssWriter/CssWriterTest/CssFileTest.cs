@@ -23,5 +23,16 @@ namespace CssWriterTest
 
             Expect(tested2.Path, Is.EqualTo(@"C:\File2.css"));
         }
+
+        [Test]
+        public void 指定したStatementsがプロパティとして取得できます()
+        {
+            var statements = new[] { new CssStatement() };
+            var tested = new CssFile(@"C:\File1.css");
+
+            tested.Statements = statements;
+
+            Expect(tested.Statements, Is.SameAs(statements));
+        }
     }
 }
