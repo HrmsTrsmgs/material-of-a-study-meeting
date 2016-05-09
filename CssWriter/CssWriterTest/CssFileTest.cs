@@ -14,6 +14,16 @@ namespace CssWriterTest
     [TestFixture]
     public class CssFileTest : AssertionHelper
     {
+        [SetUp]
+        public void SetUp()
+        {
+
+            if(File.Exists(@"C:\File1.css"))
+            {
+                File.Delete(@"C:\File1.css");
+            }
+        }
+
         [Test]
         public void 指定したPathがプロパティとして取得できます()
         {
