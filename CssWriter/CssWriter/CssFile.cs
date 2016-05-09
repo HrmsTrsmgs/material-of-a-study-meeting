@@ -8,6 +8,8 @@ namespace CssWriter
 {
     public class CssFile
     {
+        CssStatement cssStatement;
+
         public string Path { get; private set; }
         public CssStatement[] Statements { get; set; }
 
@@ -16,5 +18,13 @@ namespace CssWriter
             Path = path;
         }
 
+        public CssFile(string path, CssStatement cssStatement) : this(path)
+        {
+            this.cssStatement = cssStatement;
+        }
+
+        public void Save()
+        {
+        }
     }
 }
