@@ -40,7 +40,15 @@ class Example
     end
   end
 
-
+  def cal
+  	num = 1
+  	result = 1
+  	while true
+      result *= num
+      break num if 1000000 < result
+      num += 1
+  	end
+  end
 
   def output
   	puts calculate_sum [1,3,5]
@@ -52,6 +60,7 @@ class Example
   	puts tax
 
     puts payment
+    puts cal
   end
 end
 
