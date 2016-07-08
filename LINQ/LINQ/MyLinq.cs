@@ -47,25 +47,40 @@ namespace Linq.MyLinq
         {
             public OrderdEnumerable(IEnumerable<TElement> source)
             {
-                list = source.ToList();
+                this.sourse = source;
             }
 
-            List<TElement> list;
+            IEnumerable<TElement> sourse;
+
+            Func<IEnumerator<TElement>> CreateEnumerator;
 
             public IOrderedEnumerable<TElement> CreateOrderedEnumerable<TKey>(Func<TElement, TKey> keySelector, IComparer<TKey> comparer, bool descending)
             {
-                list.Sort((item1, item2) => comparer.Compare(keySelector(item1), keySelector(item2)));
-
-                if (descending)
+                CreateEnumerator = () =>
                 {
-                    list.Reverse();
-                }
+                    var list = sourse.ToList();
+                    list.Sort((item1, item2) => comparer.Compare(keySelector(item1), keySelector(item2)));
+
+                    if (descending)
+                    {
+                        list.Reverse();
+                    }
+                    return list.GetEnumerator();
+                };
+
                 return this;
             }
 
             public IEnumerator<TElement> GetEnumerator()
             {
-                return list.GetEnumerator();
+                if (CreateEnumerator == null)
+                {
+                    return sourse.GetEnumerator();
+                }
+                else
+                {
+                    return CreateEnumerator();
+                }
             }
 
             IEnumerator IEnumerable.GetEnumerator()
