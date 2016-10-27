@@ -23,7 +23,7 @@ namespace Linq
 
             //var result2 =
             //    from i in data
-            //    where i < 6
+            //    where i < 4
             //    select i * i;
 
             //foreach (var item in result2)
