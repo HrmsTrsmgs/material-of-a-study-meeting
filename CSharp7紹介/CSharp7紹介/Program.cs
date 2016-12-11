@@ -169,9 +169,48 @@ namespace CSharp7紹介
             this.Location.X = 3;
         }
 
+        private string name;
 
+        public string GetName()
+        {
+            return name;
+        }
+        public string GetName2() => name;
 
-        
+        public string Name { get; set; }
+
+        public string Name2
+        {
+            get
+            {
+                return name;
+            }
+        }
+
+        public string Name3 => name;
+
+        public string Name4
+        {
+            get => name;
+            set => name = value;
+        }
+
+        void 式()
+        {
+            var n = GetName();
+            var n2 = GetName2();
+            var n3 = Name;
+            var n4 = Name2;
+            var n5 = Name3;
+            var n6 = Name4;
+            Name4 = n;
+        }
+
+        var Throw式()
+        {
+            bool b;
+            int i = b ? 1 : throw new Exception("ありえない"); 
+        }
 
     }
 }
