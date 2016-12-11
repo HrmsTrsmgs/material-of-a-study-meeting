@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +22,8 @@ namespace CSharp7紹介
             型スイッチ();
             ローカル関数();
             参照();
+            Throw式();
+            ValueTuple();
         }
 
         void タプル()
@@ -42,6 +46,14 @@ namespace CSharp7紹介
                 academicBackground: new[] { "University of Chicago", "University of Wisconsin-Milwaukee" });
 
             Console.WriteLine(user1.name.first);
+
+
+            var sevens = (a: 7, b: 7.0, c: "7", d: 7, e: 7.0, f: "7", g: 7);
+            var eights = (a: 8, b: 8.0, c: "8", d: 8, e: 8.0, f: "8", g: 8, h: 8.0);
+            var nines = (a: 9, b: 9.0, c: "9", d: 9, e: 9.0, f: "9", g: 9, h: 9.0, i:"9");
+            var fifteens = (a: 15, b: 15.0, c: "15", d: 15, e: 15.0, f: "15", g: 15, h: 15.0, i: "15", j: 15, k: 15.0, l: "15", m: 15, n: 15.0, o: "15");
+
+            //var items = (Item3: 3, Item2: 2, Item1: 1, Rest : (1, 2));
 
 
             // 変数として分解できます。
@@ -206,11 +218,35 @@ namespace CSharp7紹介
             Name4 = n;
         }
 
-        var Throw式()
+        void Throw式()
         {
-            bool b;
+            bool b = true;
             int i = b ? 1 : throw new Exception("ありえない"); 
         }
 
+        async void ValueTuple()
+        {
+            Task.Run(async () =>
+            {
+                var s1 = await GetStringAsync();
+                var s2 = await GetStringAsync();
+
+                if (s1 == s2)
+                {
+                    Console.WriteLine(s1);
+                }
+            }).Wait();
+        }
+
+
+        string _string = null;
+        async ValueTask<string> GetStringAsync()
+        {
+            if(_string == null)
+            {
+                _string = await (await new HttpClient().GetAsync("http://www.yahoo.co.jp")).Content.ReadAsStringAsync();
+            }
+            return _string;
+        }
     }
 }
