@@ -42,18 +42,38 @@ namespace CSharp7紹介
             var user1 = (
                 name: (first: "Satya", last: "Nadella"),
                 eMail: "yyy@xxx.com",
-                age: 48, "",
+                age: 48,
                 academicBackground: new[] { "University of Chicago", "University of Wisconsin-Milwaukee" });
 
+            var user2 = (
+                name: (first: "Steven", last: "Ballmer"),
+                eMail: "aaa@bb.com",
+                age: 60,
+                academicBackground: new[] { "Harvard University" });
+
+            user2 = user1;
+
+            user1 = Func();
+
             Console.WriteLine(user1.name.first);
+
+            var (name3, _, _, _) = user1;
+
+            //Console.WriteLine(_);
+
+            var numbers = (1, 2.0);
+
+            Console.WriteLine(numbers.Item1);
+            Console.WriteLine(numbers.Item2);
+
+            Console.WriteLine(name.Item1);
+            Console.WriteLine(name.Item2);
 
 
             var sevens = (a: 7, b: 7.0, c: "7", d: 7, e: 7.0, f: "7", g: 7);
             var eights = (a: 8, b: 8.0, c: "8", d: 8, e: 8.0, f: "8", g: 8, h: 8.0);
             var nines = (a: 9, b: 9.0, c: "9", d: 9, e: 9.0, f: "9", g: 9, h: 9.0, i:"9");
             var fifteens = (a: 15, b: 15.0, c: "15", d: 15, e: 15.0, f: "15", g: 15, h: 15.0, i: "15", j: 15, k: 15.0, l: "15", m: 15, n: 15.0, o: "15");
-
-            //var items = (Item3: 3, Item2: 2, Item1: 1, Rest : (1, 2));
 
 
             // 変数として分解できます。
@@ -62,15 +82,15 @@ namespace CSharp7紹介
             Console.WriteLine(first);
             Console.WriteLine(last);
 
-            var user2 = (name: "Bill Gates", age: 61);
+            var user3 = (name: "Bill Gates", age: 61);
 
             // varで代入すると同じタプルに
-            var user3 = user2;
+            var user4 = user3;
 
             // 微妙に違う形式ならキャストしてくれる
-            (string full, int age) user4 = user2;
+            (string full, int age) user5 = user3;
 
-            (string name, double age) user5 = user2;
+            (string name, double age) user6 = user3;
 
             //swapが簡単に
             (first, last) = (last, first);
@@ -86,14 +106,14 @@ namespace CSharp7紹介
             return (names[0], names[1]);
         }
 
-        //((string first, string last) name, string eMail, int age, string[] academicBackground) Func()
-        //{
-        //    return (
-        //        name: (first: "Satya", last: "Nadella"),
-        //        eMail: "yyy@xxx.com",
-        //        age: 48, "",
-        //        academicBackground: new[] { "University of Chicago", "University of Wisconsin-Milwaukee" });
-        //}
+        ((string first, string last) name, string eMail, int age, string[] academicBackground) Func()
+        {
+            return (
+                name: (first: "Satya", last: "Nadella"),
+                eMail: "yyy@xxx.com",
+                age: 48,
+                academicBackground: new[] { "University of Chicago", "University of Wisconsin-Milwaukee" });
+        }
 
         void Out()
         {
