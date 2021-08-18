@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{7B521AC1-3F4B-4143-B685-10FD3E49A703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQのサンプル", "LINQのサンプル\LINQのサンプル.csproj", "{E655A723-41C4-41F1-95A1-B8433563751E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{7B521AC1-3F4B-4143-B685-10FD3E49A703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B521AC1-3F4B-4143-B685-10FD3E49A703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B521AC1-3F4B-4143-B685-10FD3E49A703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E655A723-41C4-41F1-95A1-B8433563751E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E655A723-41C4-41F1-95A1-B8433563751E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E655A723-41C4-41F1-95A1-B8433563751E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E655A723-41C4-41F1-95A1-B8433563751E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28018FAF-B624-4A45-9D4A-D87129C6B18C}
 	EndGlobalSection
 EndGlobal
