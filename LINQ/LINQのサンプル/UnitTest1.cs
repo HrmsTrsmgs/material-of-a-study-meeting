@@ -216,6 +216,7 @@ namespace LINQのサンプル
             var last = result.Last();
             var max = result.Max();
             var ave = result.Average();
+            
 
         }
 
@@ -227,7 +228,7 @@ namespace LINQのサンプル
                 from person in TestData
                 orderby person.FirstName, person.LastName descending
                 select person;
-
+            
             foreach (var person in result)
             {
                 output.WriteLine(person.ToString());

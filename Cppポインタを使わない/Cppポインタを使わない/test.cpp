@@ -134,7 +134,7 @@ TEST(ポインタを使わない, range) {
 		| filter([](auto n) { return n % 2 == 0; })
 		| views::transform([](auto n) { return n * n; });
 	for (auto number : numbers) {
-		cout << number;
+		cout << number;u
 	}
 }
 
