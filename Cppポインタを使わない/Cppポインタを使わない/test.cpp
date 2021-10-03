@@ -6,6 +6,9 @@
 using namespace std;
 using namespace views;
 
+
+
+
 class BigClass {
 public:
 	int big[120'000] = {0};
