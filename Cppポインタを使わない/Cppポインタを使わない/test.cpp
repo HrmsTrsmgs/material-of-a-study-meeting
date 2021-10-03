@@ -6,9 +6,6 @@
 using namespace std;
 using namespace views;
 
-
-
-
 class BigClass {
 public:
 	int big[120'000] = {0};
@@ -89,43 +86,43 @@ TEST(ポインタを使わない, 配列) {
 		sum += *(p++);
 	}
 
-	ASSERT_EQ(sum, 1 + 2 + 3 + 5 + 8 + 13 + 21);
+	ASSERT_EQ(1 + 2 + 3 + 5 + 8 + 13 + 21, sum);
 }
 
 TEST(ポインタを使わない, rangedfor) {
 	int numbers[]{ 1, 2, 3, 5, 8, 13, 21 };
 
 	auto sum = 0;
-	for (auto number : numbers)
+	for (auto& number : numbers)
 	{
 		sum += number;
 	}
 
-	ASSERT_EQ(sum, 1 + 2 + 3 + 5 + 8 + 13 + 21);
+	ASSERT_EQ(1 + 2 + 3 + 5 + 8 + 13 + 21, sum);
 }
 
 TEST(ポインタを使わない, vector) {
 	vector<int> numbers{ 1, 2, 3, 5, 8, 13, 21 };
 
 	auto sum = 0;
-	for (auto number : numbers)
+	for (auto& number : numbers)
 	{
 		sum += number;
 	}
 
-	ASSERT_EQ(sum, 1 + 2 + 3 + 5 + 8 + 13 + 21);
+	ASSERT_EQ(1 + 2 + 3 + 5 + 8 + 13 + 21, sum);
 }
 
 TEST(ポインタを使わない, arr) {
 	array<int, 7> numbers { 1, 2, 3, 5, 8, 13, 21 };
 	
 	auto sum = 0;
-	for (auto number : numbers)
+	for (auto& number : numbers)
 	{
 		sum += number;
 	}
 
-	ASSERT_EQ(sum, 1 + 2 + 3 + 5 + 8 + 13 + 21);
+	ASSERT_EQ(1 + 2 + 3 + 5 + 8 + 13 + 21, sum);
 }
 
 TEST(ポインタを使わない, range) {
@@ -133,15 +130,21 @@ TEST(ポインタを使わない, range) {
 		views::iota(1, 10) 
 		| filter([](auto n) { return n % 2 == 0; })
 		| views::transform([](auto n) { return n * n; });
-	for (auto number : numbers) {
+
+	for (auto&& number : numbers) {
 		cout << number;
 	}
 }
 
 TEST(ポインタを使わない, stl) {
 	array<int, 7> numbers{ 1, 2, 3, 5, 8, 13, 21 };
-
 	auto sum = std::accumulate(begin(numbers), end(numbers), 0);
 
-	ASSERT_EQ(sum, 1 + 2 + 3 + 5 + 8 + 13 + 21);
+	ASSERT_EQ(1 + 2 + 3 + 5 + 8 + 13 + 21, sum);
+}
+
+TEST(ポインタを使わない, スマートポインタ) {
+	auto i = make_shared<int>(100);
+
+	ASSERT_EQ(100, *i);
 }
