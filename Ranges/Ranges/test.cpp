@@ -15,7 +15,7 @@ TEST(Ranges, single) {
 	EXPECT_THAT(actual, ElementsAre(5));
 }
 
-TEST(Ranges, itoa) {
+TEST(Ranges, iota) {
 	auto numbers = views::iota(1, 5);
 	
 	auto actual = vector(begin(numbers), end(numbers));

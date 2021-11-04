@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Xunit;
 
 namespace サンプル実行;
