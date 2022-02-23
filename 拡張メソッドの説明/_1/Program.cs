@@ -6,18 +6,8 @@ using System.Threading.Tasks;
 
 namespace _1
 {
-    static class ObjectExtensions
-    {
-        public static void WrittenAaLine(this object instanse)
-        {
-            Console.WriteLine(instanse);
-        }
-    }
-
     class Program
     {
-
-
         static void Main(string[] args)
         {
             "".WrittenAaLine();

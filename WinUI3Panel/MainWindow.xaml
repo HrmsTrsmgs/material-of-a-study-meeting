@@ -1,0 +1,241 @@
+﻿<Window
+    x:Class="WinUI3Panel.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUI3Panel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Name="Root">
+    <TabView DataContext="{Binding ElementName=Root}" IsAddTabButtonVisible="False" VerticalAlignment="Stretch">
+        <TabView.Resources>
+            <local:EnumToTextConverter x:Name="EnumToTextConverter"/>
+        </TabView.Resources>
+        <TabView.TabItems>
+            <TabViewItem Header="StackPanel" IsClosable="False" DataContext="{Binding StackPanel}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel 
+                        Orientation="{Binding Orientation}"
+                        Background="{ThemeResource SystemChromeMediumColor}">
+                        <Rectangle DataContext="{Binding 赤}" Width="{Binding Width}" Height="{Binding Height}" Fill="Red"/>
+                        <Rectangle DataContext="{Binding 橙}" Width="{Binding Width}" Height="{Binding Height}" Fill="Orange"/>
+                        <Rectangle DataContext="{Binding 黄}" Width="{Binding Width}" Height="{Binding Height}" Fill="Yellow"/>
+                        <Rectangle DataContext="{Binding 緑}" Width="{Binding Width}" Height="{Binding Height}" Fill="Green"/>
+                        <Rectangle DataContext="{Binding 青}" Width="{Binding Width}" Height="{Binding Height}" Fill="Blue"/>
+                        <Rectangle DataContext="{Binding 藍}" Width="{Binding Width}" Height="{Binding Height}" Fill="Indigo"/>
+                        <Rectangle DataContext="{Binding 紫}" Width="{Binding Width}" Height="{Binding Height}" Fill="Violet"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="24">
+                        <ComboBox 
+                            ItemsSource="{Binding AllOrientations}"
+                            SelectedItem="{Binding Orientation, Mode=TwoWay}"
+                            Header="Orientation">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource EnumToTextConverter}}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Grid DataContext="{Binding 赤}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">赤</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 橙}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">橙</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 黄}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">黄</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 緑}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">緑</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 青}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">青</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 藍}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">藍</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 紫}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">紫</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabViewItem>
+            <TabViewItem Header="Grid" IsClosable="False" DataContext="{Binding Grid}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Background="{ThemeResource SystemChromeMediumColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="240"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="240"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Row="0" Grid.Column="0" DataContext="{Binding 黒}" Width="{Binding Width}" Height="{Binding Height}" Fill="Black"/>
+                        <Rectangle Grid.Row="0" Grid.Column="1" DataContext="{Binding 白}" Width="{Binding Width}" Height="{Binding Height}" Fill="White"/>
+                        <Rectangle Grid.Row="0" Grid.Column="2" DataContext="{Binding 赤}" Width="{Binding Width}" Height="{Binding Height}" Fill="Red"/>
+                        <Rectangle Grid.Row="1" Grid.Column="0" DataContext="{Binding 橙}" Width="{Binding Width}" Height="{Binding Height}" Fill="Orange"/>
+                        <Rectangle Grid.Row="1" Grid.Column="1" DataContext="{Binding 黄}" Width="{Binding Width}" Height="{Binding Height}" Fill="Yellow"/>
+                        <Rectangle Grid.Row="1" Grid.Column="2" DataContext="{Binding 緑}" Width="{Binding Width}" Height="{Binding Height}" Fill="Green"/>
+                        <Rectangle Grid.Row="2" Grid.Column="0" DataContext="{Binding 青}" Width="{Binding Width}" Height="{Binding Height}" Fill="Blue"/>
+                        <Rectangle Grid.Row="2" Grid.Column="1" DataContext="{Binding 藍}" Width="{Binding Width}" Height="{Binding Height}" Fill="Indigo"/>
+                        <Rectangle Grid.Row="2" Grid.Column="2" DataContext="{Binding 紫}" Width="{Binding Width}" Height="{Binding Height}" Fill="Violet"/>
+                    </Grid>
+                    <StackPanel Grid.Column="1" Margin="24">
+                        <Grid DataContext="{Binding 黒}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">黒</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 白}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">白</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 赤}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">赤</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 橙}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">橙</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 黄}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">黄</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 緑}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">緑</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 青}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">青</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 藍}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">藍</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid DataContext="{Binding 紫}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center">紫</TextBlock>
+                            <Slider Grid.Column="1" Maximum="240" Margin="12" Header="Width" Value="{Binding Width, Mode=TwoWay}"/>
+                            <Slider Grid.Column="2" Maximum="240" Margin="12" Header="Height" Value="{Binding Height, Mode=TwoWay}"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabViewItem>
+            <TabViewItem Header="Grid" IsClosable="False">
+            </TabViewItem>
+        </TabView.TabItems>
+    </TabView>
+</Window>
