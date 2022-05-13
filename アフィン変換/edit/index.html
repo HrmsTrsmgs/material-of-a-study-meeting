@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>編集</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <style type="text/css">
+        h1 {
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: small;
+        }
+
+        input {
+            display: inline-block;
+        }
+
+        .block {
+            display: inline-block;
+            vertical-align: top;
+            margin: 50px;
+        }
+
+        .flex {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <img class="block" src="img.jpg" v-bind:style="{transform:transform}" />
+            <div class="block">
+                <h1>translate</h1><br />
+                <h2>x:{{translate.x}}<br /><input v-model="translate.x" type="range" min="0" max="100"  /></h2><br />
+                <h2>y:{{translate.y}}<br /><input v-model="translate.y" type="range" min="0" max="100"  /></h2><br />
+                <h2>z:{{translate.z}}<br /><input v-model="translate.z" type="range" min="0" max="100"  /></h2><br />
+            </div>
+            <div class="block">
+                <h1>scale</h1><br />
+                <h2>x:{{scale.x}}<br /><input v-model="scale.x" type="range" min="0" max="1" step="0.01" /></h2><br />
+                <h2>y:{{scale.y}}<br /><input v-model="scale.y" type="range" min="0" max="1" step="0.01" /></h2><br />
+                <h2>z:{{scale.z}}<br /><input v-model="scale.z" type="range" min="0" max="1" step="0.01" /></h2><br />
+            </div>
+            <div class="block">
+                <h1>rotate</h1><br />
+                <h2>x:{{rotate.x}}<br /><input v-model="rotate.x" type="range" min="0" max="1" step="0.01" /></h2><br />
+                <h2>y:{{rotate.y}}<br /><input v-model="rotate.y" type="range" min="0" max="1" step="0.01" /></h2><br />
+                <h2>z:{{rotate.z}}<br /><input v-model="rotate.z" type="range" min="0" max="1" step="0.01" /></h2><br />
+                <h2>a:{{rotate.a}}<br /><input v-model="rotate.a" type="range" min="0" max="360" /></h2><br />
+            </div>
+            <div class="block">
+                <h1>skew</h1><br />
+                <h2>x:{{skew.x}}<br /><input v-model="skew.x" type="range" min="0" max="360" /></h2><br />
+                <h2>y:{{skew.y}}<br /><input v-model="skew.y" type="range" min="0" max="360" /></h2><br />
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                translate: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                },
+                scale:{
+                    x: 1,
+                    y: 1,
+                    z: 1
+                },
+                rotate: {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    a: 120
+                },
+                skew: {
+                    x: 0,
+                    y: 0
+                }
+            },
+            computed: {
+                transform: function () {
+                   return `translate3d(
+                        ${this.translate.x}px,
+                        ${this.translate.y}px,
+                        ${this.translate.z}px)
+                        scale3d(
+                        ${this.scale.x},
+                        ${this.scale.y},
+                        ${this.scale.z})
+                        rotate3d(
+                        ${this.rotate.x},
+                        ${this.rotate.y},
+                        ${this.rotate.z},
+                        ${this.rotate.a}deg)
+                        skew(
+                        ${this.skew.x}deg,
+                        ${this.skew.y}deg)`
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

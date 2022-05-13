@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>選択</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <style type="text/css">
+        .users{
+            display: inline-block;
+        }
+        .user-icon {
+            margin: 12px;
+            width: 128px;
+            height: 128px;
+            line-height: 128px;
+            border-radius: 64px;
+            text-align: center;
+            color: white;
+            font-size: 80px;
+        }
+        .user-icon.is-selected{
+            animation: rotate 2s ease 0s infinite;
+        }
+        @keyframes rotate{
+            0%{
+                transform: rotate3d(0deg);
+            }
+            50%{
+                transform: rotate3d(1, 1, 0, 360deg);
+            }
+            100%{
+                transform: rotate3d(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="user in users" class="users">
+            <div 
+                v-bind:class="{ 'user-icon': true, 'is-selected': user.isSelected }"
+                v-bind:style="{backgroundColor:user.color}" 
+                v-on:click="select(users, user.id)">{{user.name[0]}}</div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                users: [
+                    { id: "1", name: "鈴木", color: "red", isSelected: false },
+                    { id: "2", name: "佐藤", color: "blue", isSelected: false },
+                    { id: "3", name: "高橋", color: "green", isSelected: false },
+                    { id: "4", name: "田中", color: "yellow", isSelected: false }
+                ]
+            },
+            methods:{
+                select:function(users, id){
+                    for(user of users){
+                        user.isSelected = user.id === id
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
