@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using Xunit;
 
 namespace TestProject1
 {
+    
     public class UnitTest2
     {
         [Fact]
@@ -37,5 +39,18 @@ namespace TestProject1
 
             var sumOfSquared = intList.SumOfSquared();
         }
+
+        [Fact]
+        public void Test4()
+        {
+            var id = "123-4567";
+            
+            if(!id.IsUserID())
+            {
+                throw new Exception("ユーザーIDが不正です。");
+            }
+        }
+
     }
 }
+

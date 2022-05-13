@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace TestProject1.TestExtensions
@@ -28,6 +29,9 @@ namespace TestProject1.TestExtensions
             return self.Select(it => it * it).Sum();
         }
 
-
+        public static bool IsUserID(this string self)
+        {
+            return Regex.IsMatch(self, @"^[0-9]{3}-[0-9]{4}$");
+        }
     }
 }

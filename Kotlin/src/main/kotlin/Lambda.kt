@@ -27,7 +27,7 @@ class Lambda {
     }
 
     fun func1(logic: (i: Int, s: String) -> String) {
-
+       print(logic(1, "a"))
     }
 
     fun func2(number: Int, logic: (i: Int, s: String) -> String) {
