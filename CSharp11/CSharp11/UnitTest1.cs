@@ -354,7 +354,7 @@ public class UnitTest1
         //f.Name = "def";
 
         var f2 = new ClassF();
-        f.Name.Should().BeEmpty();
+        f2.Name.Should().BeEmpty();
 
         var g = new ClassG { Name = "abc" };
         //var g2 = new ClassG();
